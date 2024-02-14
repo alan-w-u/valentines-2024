@@ -54,7 +54,11 @@ button {
 }
 
 /* ID */
-#answer {
+#accept {
+    display: none;
+}
+
+#reject {
     display: none;
 }
 

@@ -1,18 +1,28 @@
 // Constants
 const question = document.getElementById("question");
-const answer = document.getElementById("answer");
+const accept = document.getElementById("accept");
+const reject = document.getElementById("reject");
 const yes = document.getElementById("yes");
 const no = document.getElementById("no");
 
+let count = 0;
+let noLimit = 5;
+
 // Action on no
-no.addEventListener("click", function () {
+no.addEventListener("click", function () {  
+    count++;
+
+    if (count >= noLimit) {
+        rejection();
+    }
+    
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
     let yesWidth = yes.offsetWidth;
     let yesHeight = yes.offsetHeight;
     let noWidth = no.offsetWidth;
     let noHeight = no.offsetHeight;
-    let scale = 1.5;
+    let scale = 1.75;
 
     // spacer.style.display = "none";
 
@@ -24,11 +34,11 @@ no.addEventListener("click", function () {
         }
     }
 
-    if (yesHeight < windowHeight / 2.1) {
-        if (yesHeight * scale < windowHeight / 2.1) {
+    if (yesHeight < windowHeight) {
+        if (yesHeight * scale < windowHeight) {
             yes.style.height = `${yesHeight * scale}px`;
         } else {
-            yes.style.height = `${windowHeight / 2.1}px`;
+            yes.style.height = `${windowHeight}px`;
         }
     }
 
@@ -40,5 +50,11 @@ no.addEventListener("click", function () {
 // Action on yes
 yes.addEventListener("click", function () {
     question.style.display = "none";
-    answer.style.display = "flex";
+    accept.style.display = "flex";
 });
+
+// Too many no
+const rejection = () => {
+    question.style.display = "none";
+    reject.style.display = "flex";
+};

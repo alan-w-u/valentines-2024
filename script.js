@@ -43,8 +43,8 @@ no.addEventListener("click", function () {
     }
 
     no.style.position = "absolute";
-    no.style.left = `${(windowWidth / 1.35 - noWidth) * Math.random()}px`;
-    no.style.top = `${(windowHeight / 1.35 - noHeight) * Math.random()}px`;
+    no.style.left = `${(windowWidth / 1.5 - noWidth) * Math.random()}px`;
+    no.style.top = `${(windowHeight / 1.5 - noHeight) * Math.random()}px`;
 });
 
 // Action on yes
